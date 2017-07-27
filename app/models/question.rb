@@ -4,6 +4,6 @@ class Question < ActiveRecord::Base
   private
 
   def set_defaults
-    self.resolved = false
+    self.resolved ||= false
   end
 end
