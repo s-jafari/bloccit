@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
+  it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:posts) }
 
   # Shoulda tests for name
@@ -37,7 +38,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "roles" do
-    
+
     it "is member by default" do
       expect(user.role).to eql("member")
     end
